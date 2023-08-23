@@ -12,7 +12,7 @@
 
   <body>
     <div class="container">
-      <header>
+      <header class="mb-4">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <!-- Container wrapper -->
           <div class="container-fluid">
@@ -40,7 +40,10 @@
                   <%= link_to 'Applications', oauth_applications_path, class: "nav-link active", "aria-current": "page" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to 'Users', 'javascript:void(0)', class: "nav-link active", "aria-current": "page" %>
+                  <%= link_to 'Users', admins_users_path, class: "nav-link active", "aria-current": "page" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'Clients', admins_clients_path, class: "nav-link active", "aria-current": "page" %>
                 </li>
                 <li class="nav-item">
                   <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link", data: { turbo: false } %>

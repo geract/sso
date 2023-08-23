@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
-  has_many :login_providers
+  has_many :login_providers, dependent: :destroy
+  belongs_to :client
 
   enum :role, [:client, :admin]
 

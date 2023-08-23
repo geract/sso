@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope 'admin' do
+  scope 'admins' do
     use_doorkeeper
   end
 
@@ -23,5 +23,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       resource :owner, only: :show
     end
+  end
+
+  namespace :admins do
+    resources :users, only: [:index, :edit, :update]
+    resources :clients
   end
 end

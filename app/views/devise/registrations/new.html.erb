@@ -11,6 +11,11 @@
     </div>
 
     <div class="form-group mb-3 w-50">
+      <%= f.label :client, class: "form-label"%>
+      <%= f.select :client_id, Client.all.collect {|a| [a.name, a.id]}, { include_blank: true }, class: "form-control form-control-lg" %>
+    </div>
+
+    <div class="form-group mb-3 w-50">
       <%= f.label :password, class:"form-label" %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>

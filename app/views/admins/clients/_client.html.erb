@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to client.name, edit_admins_client_path(client) %></td>
+  <td><%= client.extra_fields %></td>
+  <td><%= button_to "Delete", admins_client_path(client), method: :delete, class: "btn btn-danger", data: { turbo: false, confirm: 'Are you sure?' } %></td>
+</tr>

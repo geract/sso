@@ -1,0 +1,16 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.email, edit_admins_user_path(user) %></td>
+        <th><%= user.role %></th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

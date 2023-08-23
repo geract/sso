@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+OmniAuth.config.allowed_request_methods = %i[get]
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -272,6 +273,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+
+  config.omniauth :google_oauth2, "12929474986-8oef13ad8nmell31c5eor5cqb75g5qta.apps.googleusercontent.com", "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"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

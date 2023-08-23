@@ -11,6 +11,15 @@ module Sso
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    config.to_prepare do
+      # Only Applications list
+      Doorkeeper::ApplicationsController.layout "admin"
+      # Only Authorization endpoint
+      Doorkeeper::AuthorizationsController.layout "admin"
+      # Only Authorized Applications
+      Doorkeeper::AuthorizedApplicationsController.layout "admin"
+    end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

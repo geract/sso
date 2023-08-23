@@ -1,12 +1,27 @@
 Rails.application.routes.draw do
-  use_doorkeeper
+  scope 'admin' do
+    use_doorkeeper
+  end
+
   devise_for :users, controllers: {
       omniauth_callbacks: 'users/omniauth_callbacks',
       sessions: 'users/sessions',
       registrations: 'users/registrations'
     }
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  devise_scope :user do
+    authenticated :user do
+      root 'users/welcome#show', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root 'users/sessions#new', as: :unauthenticated_root
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resource :owner, only: :show
+    end
+  end
 end

@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_many :login_providers
 
-  enum roles: [:client, :admin]
+  enum :role, [:client, :admin]
 
   def valid_password?(password)
     password.blank? ? true : super
